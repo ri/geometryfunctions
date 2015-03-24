@@ -3,8 +3,6 @@
   var Geo;
 
   Geo = (function() {
-    var angleRadians, p2c, x, y;
-
     function Geo() {}
 
     Geo.prototype.d2r = function(degrees) {
@@ -29,23 +27,21 @@
       return Math.sqrt(area / Math.PI);
     };
 
-    p2c = function(radius, angle) {};
-
-    angleRadians = d2r(angle);
-
-    x = radius * Math.cos(angleRadians);
-
-    y = radius * Math.sin(angleRadians);
-
-    ({
-      x: x,
-      y: y
-    });
+    Geo.prototype.p2c = function(radius, angle) {
+      var angleRadians, x, y;
+      angleRadians = d2r(angle);
+      x = radius * Math.cos(angleRadians);
+      y = radius * Math.sin(angleRadians);
+      return {
+        x: x,
+        y: y
+      };
+    };
 
     return Geo;
 
   })();
 
-  window.geo = Geo;
+  window.Geo = Geo;
 
 }).call(this);
